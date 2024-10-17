@@ -5,11 +5,10 @@ const app = express();
 const dotenv = require("dotenv").config();
 const PORT = process.env.PORT || 5001;
 const cors = require("cors");
-const cookieParser = require("cookie-parser");
-const corsOptions = require("./corsOptions");
+
 connectDb();
-app.use(cookieParser());
-app.use(cors(corsOptions));
+
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/user", require("./routes/userRoutes"));
